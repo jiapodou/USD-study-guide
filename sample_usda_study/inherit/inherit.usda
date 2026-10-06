@@ -1,0 +1,77 @@
+#usda 1.0
+(
+    relocates = {
+        </PrimA/Child>: </PrimWithInherits/Child>,
+        </PrimB/Child>: </PrimWithVariant/Child>
+    }
+)
+
+def "ClassA" ()
+{
+    def "Child"
+    {
+        uniform token testString = "from ClassA/Child"
+        uniform token classAChildString = "test"
+    }
+}
+
+def "RefPrim"()
+{
+    def "Child"
+    {
+        uniform token testString = "from RefPrim/Child"
+        uniform token refPrimChildString = "test"
+    }
+}
+
+def "PrimA"
+(
+    prepend references = </RefPrim>
+)
+{
+}
+
+
+def "PrimWithInherits"
+(
+    inherits = </ClassA>
+)
+{
+}
+
+def "PrimB"
+(
+    prepend references = </RefPrim>
+)
+{
+}
+
+
+def "PrimWithVariant"
+(
+    variants = {
+        string varSet = "Set1"
+    }
+    prepend variantSets = "varSet"
+)
+{
+    variantSet "varSet" = {
+        "Set1" ()
+        {
+            def "Child"
+            {
+                uniform token testString = "from varSet Child"
+                uniform token varChildString = "test"
+            }
+        }
+        "Set2" ()
+        {
+        }
+    }
+
+    def "Child"
+    {
+        uniform token testString = "from local Child"
+        uniform token localChildString = "test"
+    }
+}

@@ -1,0 +1,25 @@
+#usda 1.0
+def "Model_1" (
+    references = @./model.usda@</Model>
+)
+{
+}
+
+class "ClassA"
+{
+    def "Rig"
+    {
+        def "LRig"
+        {
+            uniform token rootClassALAnim = "test_from_Rig"
+        }
+    }
+
+    def "Anim"
+    {
+        def "LAnim"
+        {
+            uniform token rootClassALAnim = "test_from_Anim"
+        }
+    }
+}

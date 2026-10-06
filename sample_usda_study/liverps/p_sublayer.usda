@@ -1,0 +1,9 @@
+#usda 1.0
+def "parent" (
+)
+{
+    def "child" ()
+    {
+        uniform token testString = "from ref_sublayer"
+    }
+}

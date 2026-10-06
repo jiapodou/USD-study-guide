@@ -1,0 +1,47 @@
+#usda 1.0
+(
+    relocates = {
+        </Model/Rig/LRig>: </Model/Anim/LAnim>
+    }
+)
+
+class "ClassA"
+{
+    def "Rig"
+    {
+        def "LRig"
+        {
+            uniform token modelClassALRig = "test"
+        }
+    }
+
+    def "Anim"
+    {
+        def "LAnim"
+        {
+            uniform token modelClassALAnim = "test"
+        }
+    }
+}
+
+def "Model" (
+    inherits = </ClassA>
+)
+{
+    def "Rig"
+    {
+        def "LRig"
+        {
+            uniform token modelClassALRig = "test_rig"
+            uniform token modelClassLocalRig = "test_local_rig"
+        }
+    }
+    def "Anim"
+    {
+        def "LAnim"
+        {
+            uniform token modelClassLocalAnim = "test"
+            uniform token modelClassALAnim = "test_local"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+#usda 1.0
+class "p_class" {
+    def "child" () 
+    {
+        uniform token testString = "from p_class"
+    }
+}
+
+def "parent" (
+    inherits = </p_class>
+)
+{
+    def "child" (prepend references = </ref_c>){}
+}
+
+def "ref_p" () 
+{
+    def "child" () 
+    {
+        uniform token testString = "from ref_p"
+    }
+}
+
+def "ref_c" () 
+{
+    uniform token testString = "from ref_c"
+}
